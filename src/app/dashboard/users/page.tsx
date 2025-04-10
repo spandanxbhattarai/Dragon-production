@@ -44,6 +44,7 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
+import { UserApiService, User} from '../../../../apiCalls/verifyUsers';
 
 // Define proper interfaces for the data models
 interface Batch {
@@ -62,21 +63,6 @@ interface ExamResult {
   examName: string;
   totalQuestions: number;
   correctAnswers: number;
-}
-
-interface User {
-  _id: string;
-  fullname: string;
-  email: string;
-  phone: string;
-  role: 'user' | 'teacher' | 'admin';
-  status: 'verified' | 'unverified';
-  plan: 'free' | 'premium' | 'full';
-  createdAt: string;
-  batch?: Batch;
-  courseEnrolled?: Course;
-  citizenshipImageUrl?: string;
-  examsAttended?: ExamResult[];
 }
 
 interface PaginationState {
@@ -120,17 +106,6 @@ interface UserApiServiceType {
   resetPassword: (userId: string, newPassword: string) => Promise<any>;
 }
 
-// Assuming this is imported from an external file
-const UserApiService: UserApiServiceType = {
-  getUnverifiedUsers: async (page, limit) => ({ users: [], count: 0 }),
-  getVerifiedUsers: async (page, limit) => ({ users: [], count: 0 }),
-  searchUsers: async (query, page, limit) => ({ data: { users: [], totalPages: 0 } }),
-  getBatches: async (page, limit) => ({ data: [], meta: { totalPages: 0 } }),
-  verifyUser: async (userId, batchId) => ({}),
-  deleteUser: async (userId) => ({}),
-  updateUser: async (userId, data) => ({ user: {} as User }),
-  resetPassword: async (userId, newPassword) => ({}),
-};
 
 // Interface for the edit form state
 interface EditFormState {
@@ -989,7 +964,7 @@ export default function AdminVerifyUsersPage() {
 
       {/* User Details Dialog */}
       <Dialog open={isDetailsDialogOpen} onOpenChange={setIsDetailsDialogOpen}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="min-w-[37rem]">
           <DialogHeader>
             <DialogTitle className='font-Urbanist'>User Details</DialogTitle>
             <DialogDescription className='font-Urbanist'>
