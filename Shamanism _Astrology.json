@@ -1,0 +1,241 @@
+{
+    "info": {
+      "_postman_id": "f8e7d6c5-4b3a-2c1d-0e9f-8a7b6c5d4e3f",
+      "name": "Shamanism Astrology API",
+      "description": "API collection for testing the Shamanism Astrology endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Zodiac Signs",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs"
+            ]
+          },
+          "description": "Retrieve all zodiac signs"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Zodiac Sign by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs/{{zodiac_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs",
+              "{{zodiac_id}}"
+            ]
+          },
+          "description": "Retrieve a zodiac sign by its ID"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Zodiac Sign by Name",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs/name/Aries",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs",
+              "name",
+              "Aries"
+            ]
+          },
+          "description": "Retrieve a zodiac sign by its name"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Zodiac Sign by Birth Date",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-sign-by-birthdate?birthDate=1990-04-15",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-sign-by-birthdate"
+            ],
+            "query": [
+              {
+                "key": "birthDate",
+                "value": "1990-04-15"
+              }
+            ]
+          },
+          "description": "Retrieve a zodiac sign based on birth date"
+        },
+        "response": []
+      },
+      {
+        "name": "Create Zodiac Sign",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Aries\",\n  \"element\": \"Fire\",\n  \"symbol\": \"Ram\",\n  \"startDate\": \"03-21\",\n  \"endDate\": \"04-19\",\n  \"traits\": \"Courageous, determined, confident, enthusiastic, optimistic, honest, passionate\",\n  \"strengths\": \"Courageous, determined, confident, enthusiastic\",\n  \"weaknesses\": \"Impatient, moody, short-tempered, impulsive\",\n  \"likes\": \"Comfortable clothes, taking on leadership roles, physical challenges, individual sports\",\n  \"dislikes\": \"Inactivity, delays, work that does not use one's talents\",\n  \"rulingPlanet\": \"Mars\",\n  \"description\": \"Aries is the first sign of the zodiac, and those born under this sign are known for their passionate and independent nature. As a fire sign, Aries individuals are dynamic, spontaneous, and have a zest for life.\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs"
+            ]
+          },
+          "description": "Create a new zodiac sign"
+        },
+        "response": []
+      },
+      {
+        "name": "Update Zodiac Sign",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Aries\",\n  \"element\": \"Fire\",\n  \"symbol\": \"Ram\",\n  \"startDate\": \"03-21\",\n  \"endDate\": \"04-19\",\n  \"traits\": \"Courageous, determined, confident, enthusiastic, optimistic, honest, passionate\",\n  \"strengths\": \"Courageous, determined, confident, enthusiastic\",\n  \"weaknesses\": \"Impatient, moody, short-tempered, impulsive\",\n  \"likes\": \"Comfortable clothes, taking on leadership roles, physical challenges, individual sports\",\n  \"dislikes\": \"Inactivity, delays, work that does not use one's talents\",\n  \"rulingPlanet\": \"Mars\",\n  \"description\": \"Aries is the first sign of the zodiac, and those born under this sign are known for their passionate and independent nature. As a fire sign, Aries individuals are dynamic, spontaneous, and have a zest for life. Updated description with more details.\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs/{{zodiac_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs",
+              "{{zodiac_id}}"
+            ]
+          },
+          "description": "Update an existing zodiac sign"
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Zodiac Sign",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/zodiac-signs/{{zodiac_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "zodiac-signs",
+              "{{zodiac_id}}"
+            ]
+          },
+          "description": "Delete a zodiac sign by its ID"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Compatibility",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/api/astrology/compatibility?sign1=Aries&sign2=Leo",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "api",
+              "astrology",
+              "compatibility"
+            ],
+            "query": [
+              {
+                "key": "sign1",
+                "value": "Aries"
+              },
+              {
+                "key": "sign2",
+                "value": "Leo"
+              }
+            ]
+          },
+          "description": "Get compatibility analysis between two zodiac signs"
+        },
+        "response": []
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      }
+    ],
+    "variable": [
+      {
+        "key": "base_url",
+        "value": "http://localhost:5000",
+        "type": "string"
+      },
+      {
+        "key": "zodiac_id",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  }
